@@ -1,0 +1,17 @@
+_format_version: "3.0"
+services:
+- name: ai-api
+  url: http://mock-api:8002
+  routes:
+  - name: ai-route
+    paths:
+    - /ai
+    plugins:
+    - name: semantic-prompt-guard
+      config:
+        block_keywords:
+          - "ignore all rules"
+          - "bypass"
+          - "avoid detection"
+        semantic_api_url: "http://mock-api:8002/moderate"
+        semantic_api_key: "test-key"

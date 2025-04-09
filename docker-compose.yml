@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  kong:
+    build: .
+    ports:
+      - "8000:8000"
+      - "8001:8001"
+    volumes:
+      - ./kong.yml:/kong/kong.yml
+    environment:
+      KONG_DATABASE: "off"
+      KONG_DECLARATIVE_CONFIG: "/kong.yml"
+    depends_on:
+      - mock-api
+
+  mock-api:
+    image: python:3.10
+    working_dir: /app
+    volumes:
+      - ./mock_api.py:/app/mock_api.py
+    command: sh -c "pip install flask && python mock_api.py"
+    ports:
+      - "8002:8002"
+
+      
