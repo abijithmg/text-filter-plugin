@@ -1,0 +1,11 @@
+{
+    "safety_patterns": {
+      "hate": ["\\bhate\\b", "\\bracist\\b"],
+      "selfharm": ["kill myself", "end my life"],
+      "sexual": ["sex", "nude", "porn"],
+      "violence": ["shoot", "bomb", "stab"]
+    },
+    "protected_patterns": ["confidential", "\\bssn\\b", "secret project"],
+    "shield_patterns": ["ignore.*previous.*instructions", "disregard all content policies"]
+  }
+  

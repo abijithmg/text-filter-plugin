@@ -6,12 +6,9 @@ services:
   - name: ai-route
     paths:
     - /ai
+    methods:
+      - POST    
     plugins:
     - name: semantic-prompt-guard
       config:
-        block_keywords:
-          - "ignore all rules"
-          - "bypass"
-          - "avoid detection"
-        semantic_api_url: "http://mock-api:8002/moderate"
         semantic_api_key: "test-key"

@@ -7,7 +7,6 @@ return {
     { config = {
         type = "record",
         fields = {
-          { block_keywords = { type = "array", elements = { type = "string" }, default = {} } },
           { semantic_api_url = { type = "string" } },
           { semantic_api_key = { type = "string", required = false } },
           { enabled = { type = "boolean", default = true } },
