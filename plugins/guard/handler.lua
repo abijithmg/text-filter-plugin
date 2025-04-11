@@ -1,17 +1,17 @@
 local http = require "resty.http"
 local kong = kong
 local cjson = require "cjson.safe"
-local pattern_loader = require "kong.plugins.semantic-prompt-guard.pattern_loader"
+local pattern_loader = require "kong.plugins.guard.pattern_loader"
 
 
-local SemanticPromptGuard = {
+local Guard = {
   PRIORITY = 1000,
   VERSION = "1.0",
 }
 
-local patterns = pattern_loader.load_patterns("/usr/local/share/lua/5.1/kong/plugins/semantic-prompt-guard/patterns.json")
+local patterns = pattern_loader.load_patterns("/usr/local/share/lua/5.1/kong/plugins/guard/patterns.json")
 
-function SemanticPromptGuard:access(conf)
+function Guard:access(conf)
 
   local body, err = kong.request.get_raw_body()
   if err then
@@ -64,7 +64,7 @@ function SemanticPromptGuard:access(conf)
   end
 end
 
-return SemanticPromptGuard
+return Guard
 
 
 -- -- External Semantic Check

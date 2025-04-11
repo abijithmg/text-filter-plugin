@@ -1,7 +1,7 @@
 local typedefs = require "kong.db.schema.typedefs"
 
 return {
-  name = "semantic-prompt-guard",
+  name = "guard",
   fields = {
     { consumer = typedefs.no_consumer },
     { config = {

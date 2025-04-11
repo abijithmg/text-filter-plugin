@@ -9,6 +9,6 @@ services:
     methods:
       - POST    
     plugins:
-    - name: semantic-prompt-guard
+    - name: guard
       config:
         semantic_api_key: "test-key"
